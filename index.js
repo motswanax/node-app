@@ -1,3 +1,4 @@
+const Joi = require("joi"); // Pascal naming for classes.
 const express = require("express");
 
 const app = express();
@@ -26,6 +27,20 @@ app.get("/api/courses/:id", (req, res) => {
 });
 
 app.post("/api/courses", (req, res) => {
+  const schema = Joi.object({
+    name: Joi.string().min(3).required(),
+  });
+
+  const { error, value } = schema.validate(req.body);
+  console.log({ error, value });
+
+  if (error) {
+    res
+      .status(400)
+      .send(error.details[0].message);
+    return;
+  }
+
   const course = { id: courses.length + 1, name: req.body.name };
   courses.push(course);
   res.send(course);
