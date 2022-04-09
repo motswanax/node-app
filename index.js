@@ -1,6 +1,7 @@
 const express = require("express");
 
 const app = express();
+app.use(express.json()); // Middleware
 
 const courses = [
   { id: 1, name: "çourse1" },
@@ -24,6 +25,12 @@ app.get("/api/courses/:id", (req, res) => {
   res.send(course);
 });
 
-// Port
+app.post("/api/courses", (req, res) => {
+  const course = { id: courses.length + 1, name: req.body.name };
+  courses.push(course);
+  res.send(course);
+});
+
+// Port from environment variable.
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
