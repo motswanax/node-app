@@ -1,3 +1,4 @@
+const config = require("config");
 const morgan = require("morgan");
 const helmet = require("helmet");
 const Joi = require("joi"); // Pascal naming for classes.
@@ -11,6 +12,11 @@ app.use(express.json()); // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public")); // Static resources location.
 app.use(helmet());
+
+// Configuration.
+console.log("Applicaiton Name: " + config.get("name"));
+console.log("Mail Server: " + config.get("mail.host"));
+console.log("Mail Password: " + config.get("mail.password"));
 
 if (app.get("env") === "development") {
   app.use(morgan("tiny"));
