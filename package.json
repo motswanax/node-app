@@ -1,0 +1,28 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/motswanax/node-app.git"
+  },
+  "author": "Baiketli Dijo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/motswanax/node-app/issues"
+  },
+  "homepage": "https://github.com/motswanax/node-app#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "joi": "^17.6.0",
+    "mongoose": "^6.2.10",
+    "underscore": "^1.13.2"
+  },
+  "devDependencies": {
+    "jshint": "^2.13.4"
+  }
+}
