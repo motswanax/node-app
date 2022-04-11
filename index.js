@@ -11,7 +11,11 @@ app.use(express.json()); // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public")); // Static resources location.
 app.use(helmet());
-app.use(morgan('tiny'));
+
+if (app.get("env") === "development") {
+  app.use(morgan("tiny"));
+  console.log("Morgan enabled");
+}
 
 // Custom middleware.
 app.use(logger);
