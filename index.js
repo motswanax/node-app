@@ -1,3 +1,5 @@
+const morgan = require("morgan");
+const helmet = require("helmet");
 const Joi = require("joi"); // Pascal naming for classes.
 const express = require("express");
 const logger = require("./logger");
@@ -8,6 +10,8 @@ const app = express();
 app.use(express.json()); // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public")); // Static resources location.
+app.use(helmet());
+app.use(morgan('tiny'));
 
 // Custom middleware.
 app.use(logger);

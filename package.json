@@ -18,8 +18,10 @@
   "homepage": "https://github.com/motswanax/node-app#readme",
   "dependencies": {
     "express": "^4.17.3",
+    "helmet": "^5.0.2",
     "joi": "^17.6.0",
     "mongoose": "^6.2.10",
+    "morgan": "^1.10.0",
     "underscore": "^1.13.2"
   },
   "devDependencies": {
