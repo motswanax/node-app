@@ -4,7 +4,10 @@ const logger = require("./logger");
 const authenticator = require("./authenticator");
 
 const app = express();
+
 app.use(express.json()); // Middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public")); // Static resources location.
 
 // Custom middleware.
 app.use(logger);
