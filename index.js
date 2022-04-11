@@ -1,8 +1,15 @@
 const Joi = require("joi"); // Pascal naming for classes.
 const express = require("express");
+const logger = require("./logger");
+const authenticator = require("./authenticator");
 
 const app = express();
 app.use(express.json()); // Middleware
+
+// Custom middleware.
+app.use(logger);
+
+app.use(authenticator);
 
 const courses = [
   { id: 1, name: "çourse1" },
