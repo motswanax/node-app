@@ -18,6 +18,7 @@
   "homepage": "https://github.com/motswanax/node-app#readme",
   "dependencies": {
     "config": "^3.3.7",
+    "debug": "^4.3.4",
     "express": "^4.17.3",
     "helmet": "^5.0.2",
     "joi": "^17.6.0",
