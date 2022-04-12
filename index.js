@@ -9,6 +9,9 @@ const authenticator = require("./authenticator");
 
 const app = express();
 
+app.set("view engine", "pug"); // Express internally loads this module
+app.set("views", "./views"); // Default.
+
 app.use(express.json()); // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public")); // Static resources location.
@@ -36,7 +39,7 @@ const courses = [
 ];
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.render("index", { title: "My Node App", message: "Hello" }); // View engine template.
 });
 
 app.get("/api/courses", (req, res) => {
